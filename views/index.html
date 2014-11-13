@@ -1,16 +1,40 @@
 {% extends "layout.html" %}
- 
+
 {% block content %}
   
   <div class="page-header">
     <h1>{{title}}</h1>
   </div>
+  
   <div class="row">
     <div class="col-md-3">
       <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
       <b>Your Name</b><br>
       100 followers
     </div>
+
+    <center>{% if show_form %}
+    <form action="/submit" method="POST">
+      <label for="name_field">Name:</label>
+      
+      {% if name %}
+        <input name="name" type="text" id="name_field" value="{{ name }}" />
+      {% else %}
+        <input name="name" type="text" id="name_field" />
+      {% endif %}
+
+      <label for="text_field">Text:</label>
+
+      {% if name %}
+        <input name="text" type="text" id="text_field" style="width: 350px;" placeholder="{{ name }}'s Super Cool Tweet"/>
+      {% else %}
+        <input name="text" type="text" id="text_field" style="width: 350px;" placeholder="Write yer tweet!"/>
+      {% endif %}
+   
+      <input type="submit" value="Submit" />
+    </form>
+  {% endif %}</center>
+
     <div class="col-md-9">
     
     	<div class = "all-tweets">All The Tweets </div>

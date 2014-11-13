@@ -3,7 +3,7 @@ var _ = require("underscore");
 var data = [];
  
 module.exports = {
-  push: function(name, text){
+  push: function(name, text, alertTheMedia){
     var id = data.length
     var newTweet = {
       "id": id, 
@@ -11,6 +11,9 @@ module.exports = {
       "text": text
     }
     data.push(newTweet);
+    if(alertTheMedia) {
+      alertTheMedia(newTweet);
+    }
   },
   list: function(){
     return data;

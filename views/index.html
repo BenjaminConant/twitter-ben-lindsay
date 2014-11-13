@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+  
+  <div class="page-header">
+    <h1>Welcome to Twitter.js, Nimit!</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
+      <b>Your Name</b><br>
+      100 followers
+    </div>
+    <div class="col-md-9">
+    
+    	<div class = "all-tweets">All Tweets </div>
+      <!-- display tweets here -->
+      {% for tweet in tweets %}
+        <li class = "tweet-object">
+        	<img class="image" src="http://www.motherjones.com/files/images/sloth.jpg" alt="SlothFaceSmileHElloMuchSloth"> 
+        	<div class ="name-tweet-link-div">
+	        	<a class="name" href="/users/{{tweet.name}}">{{tweet.name}}</a>
+	        	<p class="tweet">{{tweet.text}} </p>
+	        	<a class ="link" href="/users/{{tweet.name}}">Re-tweet</a>
+        	</div>
+        </li>
+      {% endfor %}
+      
+    </div>
+  </div>
+    
+{% endblock %}

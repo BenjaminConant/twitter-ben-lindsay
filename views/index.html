@@ -3,7 +3,7 @@
 {% block content %}
   
   <div class="page-header">
-    <h1>Welcome to Twitter.js, Nimit!</h1>
+    <h1>{{title}}</h1>
   </div>
   <div class="row">
     <div class="col-md-3">
@@ -13,14 +13,14 @@
     </div>
     <div class="col-md-9">
     
-    	<div class = "all-tweets">All Tweets </div>
+    	<div class = "all-tweets">All The Tweets </div>
       <!-- display tweets here -->
       {% for tweet in tweets %}
         <li class = "tweet-object">
         	<img class="image" src="http://www.motherjones.com/files/images/sloth.jpg" alt="SlothFaceSmileHElloMuchSloth"> 
         	<div class ="name-tweet-link-div">
 	        	<a class="name" href="/users/{{tweet.name}}">{{tweet.name}}</a>
-	        	<p class="tweet">{{tweet.text}} </p>
+	        	<p class="tweet"><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">{{tweet.text}}</a></p>
 	        	<a class ="link" href="/users/{{tweet.name}}">Re-tweet</a>
         	</div>
         </li>

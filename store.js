@@ -4,10 +4,13 @@ var data = [];
  
 module.exports = {
   push: function(name, text){
-    data.push({
+    var id = data.length
+    var newTweet = {
+      "id": id, 
       "name": name,
       "text": text
-    })
+    }
+    data.push(newTweet);
   },
   list: function(){
     return data;

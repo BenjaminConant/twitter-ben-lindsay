@@ -19,6 +19,13 @@ router.get('/users/:name', function(req, res) {
 });
 
 
+router.get('/users/:name/tweets/:id', function(req, res) {
+  var name = req.params.name;
+  var tweetID = Number(req.params.id);
+  var list = store.find({id: tweetID});
+  res.render('index', { title: 'Twitter.js - A single tweet by '+name, tweets: list});
+});
+
 
 
 module.exports = router;
